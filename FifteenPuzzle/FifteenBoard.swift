@@ -18,8 +18,25 @@ class FifteenBoard {
     
     func scramble(numTimes n: Int) {
         var i = n
-        while (i>0) {
-            // get a random tile and slide it
+        while (i>0) { // get a random tile and slide it
+            var choices = [[Int]]()
+            let pos = getRowAndColumn(forTile: 0)
+            let r = pos!.row
+            let c = pos!.column
+            if (c > 0) {
+                choices.append([r, c-1])
+            }
+            if (c < 3) {
+                choices.append([r, c+1])
+            }
+            if (r > 0) {
+                choices.append([r-1, c])
+            }
+            if (r < 3) {
+                choices.append([r+1, c])
+            }
+            let randomIndex = Int(arc4random_uniform(UInt32(choices.count)))
+            slideTile(atRow: choices[randomIndex][0], Column: choices[randomIndex][1])
             i -= 1
         }
     }
