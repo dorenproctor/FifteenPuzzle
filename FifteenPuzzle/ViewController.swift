@@ -44,7 +44,9 @@ class ViewController: UIViewController {
             board!.slideTile(atRow: pos!.row, Column: pos!.column)
             sender.center = buttonCenter // or animate the change
             if (board!.isSolved()) {
-                print("You win!")
+                let alert = UIAlertController(title: "You Win!", message: "Good job!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
