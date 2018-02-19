@@ -21,5 +21,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBOutlet weak var boardView: BoardView!
+    @IBAction func tileSelected(_ sender: UIButton) {  }
+    @IBAction func shuffleTiles(_ sender: AnyObject) {  }
 }
 
